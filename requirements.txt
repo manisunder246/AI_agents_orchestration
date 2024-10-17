@@ -1,0 +1,8 @@
+streamlit
+pyodbc
+semantic-kernel
+pandas
+matplotlib
+openai
+asyncio
+re
