@@ -80,7 +80,9 @@ To set up the project locally, follow these steps:
    https://github.com/manisunder246/SK-GenAI-Orchestrator.git
 2.Install the required dependencies:
   pip install -r requirements.txt
+
 3. Set up your OpenAI API key in the config.py file.
+
 4. Run the main script:
   ```python
       python main.py
