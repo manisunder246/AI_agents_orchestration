@@ -125,7 +125,7 @@ MOVE 'AdventureWorks2019_Log' TO '/var/opt/mssql/data/AdventureWorks2019_Log.ldf
 GO
 ```
 
-### 3. ***Verify the Restoration***
+### 3. **Verify the Restoration**
 ```sql
 SELECT name FROM sys.databases;
 GO
