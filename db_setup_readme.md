@@ -48,7 +48,7 @@ This document provides a detailed setup to help you run SQL Server 2019 in a Doc
 - Expose port `1434` on the local machine and map it to port `1433` in the container.
 
 
-### Install `sqlcmd` for macOS Using Homebrew
+### **Install `sqlcmd`**
 
 To install `sqlcmd`, follow these steps:
 
@@ -73,7 +73,7 @@ brew install mssql-tools
 ```bash
 docker exec -it my_sql_container mkdir -p /var/opt/mssql/backup
 ```
-### Copy .bak File to the Container:
+### **Copy .bak File to the Container**
 ```bash
 docker cp "/path/to/your/AdventureWorks2019.bak" my_sql_container:/var/opt/mssql/backup/
 ```
@@ -104,7 +104,7 @@ ACCEPT_EULA=Y apt-get install -y msodbcsql17
     source ~/.bashrc
    ```
 
-### Restore Database from .bak File
+### **Restore Database from .bak File**
 1. Log in to the SQL Server container using sqlcmd:
 ```bash
 docker exec -it my_sql_container /opt/mssql-tools/bin/sqlcmd -S localhost,1434 -U SA -P 'YourStrong@Passw0rd'
@@ -125,8 +125,7 @@ MOVE 'AdventureWorks2019_Log' TO '/var/opt/mssql/data/AdventureWorks2019_Log.ldf
 GO
 ```
 
-3. Verify the Restoration
-
+3. **Verify the Restoration**
 ```sql
 SELECT name FROM sys.databases;
 GO
