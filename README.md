@@ -3,6 +3,7 @@ A project leveraging Semantic Kernel (SK) to orchestrate AI agents for automatin
 
 ## **Table of Contents**
 - [Overview](#overview)
+- [Prerequisites](#prerequisites)
 - [Architecture](#architecture)
 - [Agents](#agents)
   - [DataExtractorAgent](#dataextractoragent)
@@ -19,6 +20,14 @@ A project leveraging Semantic Kernel (SK) to orchestrate AI agents for automatin
 ## **Overview**
 
 This project leverages **Semantic Kernel** to orchestrate multiple agents for automating database tasks. The agents collaborate to generate SQL queries, extract data from the database, and visualize the results, all driven by natural language input from the user. Each agent performs a specific role, and the orchestration framework ensures seamless communication between them.
+
+---
+
+## **Prerequisites**
+
+Before proceeding with the setup, ensure you have the **AdventureWorks2019** database set up locally. Please refer to the [Database Setup Guide](README_db_setup.md) to configure SQL Server on Docker and restore the AdventureWorks2019 database.
+
+- **[README_db_setup.md](README_db_setup.md)**: This guide provides step-by-step instructions to install SQL Server, configure `sqlcmd`, and restore the **AdventureWorks2019** database from a `.bak` file.
 
 ---
 
@@ -103,5 +112,6 @@ The **setup_agents_and_plugins.py** script is used to initialize the kernel, loa
 To set up the project locally, follow these steps:
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/manisunder246/SK-GenAI-Orchestrator.git
