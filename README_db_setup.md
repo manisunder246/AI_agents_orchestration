@@ -20,7 +20,7 @@ This document provides a detailed setup to help you run SQL Server 2019 in a Doc
 ## **Prerequisites**
 - Docker should be installed and running on your machine.
 - Homebrew installed on macOS (for installing `sqlcmd`).
-- AdventureWorks2019 `.bak` file available on your local machine.
+- AdventureWorks2019 `.bak` file available on your local machine. You can download the `AdventureWorks2019.bak` under `OLTP` from [here](https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms)
 
 ---
 
