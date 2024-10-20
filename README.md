@@ -1,5 +1,5 @@
 # SK-GenAI-Orchestrator
-A project leveraging Semantic Kernel (SK) to orchestrate AI agents for automating database tasks. It simplifies data cataloging, extraction, SQL query generation, and visualisation, making it easier to analyze and manage data from databases efficiently.
+A project leveraging Semantic Kernel (SK) to orchestrate AI agents for automating database tasks. It simplifies data cataloging, extraction, SQL query generation, and visualization, making it easier to analyze and manage data from databases efficiently.
 
 ## **Table of Contents**
 - [Overview](#overview)
@@ -9,6 +9,7 @@ A project leveraging Semantic Kernel (SK) to orchestrate AI agents for automatin
   - [SQLQueryGeneratorAgent](#sqlquerygeneratoragent)
   - [DataVizAgent](#datavizagent)
   - [CatalogingAgent](#catalogingagent)
+- [Setup Agents and Plugins](#setup-agents-and-plugins)
 - [How It Works](#how-it-works)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -63,27 +64,44 @@ The agents collaborate through **AgentGroupChat** to respond to user queries and
 
 ---
 
+## **Setup Agents and Plugins**
+
+The **setup_agents_and_plugins.py** script is used to initialize the kernel, load plugins, set up agents, and add services for each agent to ensure seamless collaboration. The agents are configured to work in a conversational environment using **AgentGroupChat** and **KernelFunctionSelectionStrategy**.
+
+### **Key Functionalities of `setup_agents_and_plugins.py`**
+
+1. **Kernel Initialization**: 
+   - Sets up the Semantic Kernel and loads required plugins, including the `DataCatalogueAgent`, `DataExtractorAgent`, `SQLQueryGeneratorAgent`, and `DataVizAgent`.
+   - Adds services like `OpenAIChatCompletion` for each agent to interact using GPT models.
+
+2. **Agent Creation**:
+   - Creates agents like `cataloging_agent`, `query_gen_agent`, `data_extractor_agent`, and `data_viz_agent` using the `OpenAIAssistantAgent.create()` function.
+   - Each agent is initialized with specific instructions, API keys, and models, enabling them to perform designated tasks like cataloging, SQL query generation, data extraction, and visualization.
+
+3. **Selection Strategy**:
+   - Uses a custom selection strategy with `KernelFunctionFromPrompt` to determine which agent should act next based on user input and conversation history.
+   - Ensures that the agents communicate effectively and handle complex user queries collaboratively.
+
+4. **AgentGroupChat**:
+   - Adds the created agents to an `AgentGroupChat`, enabling multi-agent conversations to dynamically respond to user inputs and process database tasks in an organized manner.
+
+---
+
 ## **How It Works**
 
 1. **User Input**: The user provides a natural language query, such as "What are the top 5 products ordered?"
-2. **SQLQuery Generation**: The `SQLQueryGeneratorAgent` processes the input and generates an SQL query.
-3. **Data Extraction**: The `DataExtractorAgent` executes the generated SQL query and retrieves the data from the database.
-4. **Visualization**: If requested, the `DataVizAgent` generates visualizations based on the extracted data.
+2. **Agent Selection**: Based on the input, the system selects the most relevant agent (e.g., `SQLQueryGeneratorAgent` for query generation).
+3. **SQL Query Generation**: The `SQLQueryGeneratorAgent` processes the input and generates an SQL query.
+4. **Data Extraction**: The `DataExtractorAgent` executes the generated SQL query and retrieves the data from the database.
+5. **Visualization**: If requested, the `DataVizAgent` generates visualizations based on the extracted data.
+6. **Cataloging**: The `CatalogingAgent` manages metadata and catalogs the data for improved accuracy in subsequent queries.
 
 ---
 
 ## **Installation**
 
 To set up the project locally, follow these steps:
+
 1. Clone the repository:
    ```bash
-   https://github.com/manisunder246/SK-GenAI-Orchestrator.git
-2.Install the required dependencies:
-  pip install -r requirements.txt
-
-3. Set up your OpenAI API key in the config.py file.
-
-4. Run the main script:
-  ```python
-      python main.py
-   
+   git clone https://github.com/manisunder246/SK-GenAI-Orchestrator.git
